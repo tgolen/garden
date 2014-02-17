@@ -1,0 +1,25 @@
+{
+	"name": "garden",
+	"version": "0.0.1",
+	"description": "",
+	"main": "app.js",
+	"author": "Tim Golen <tim@golen.net>",
+	"scripts": {
+		"start": "node ./bin/server"
+	},
+	"preferGlobal": false,
+	"dependencies": {
+		"async": "0.2.x",
+		"express": "3.x",
+		"mongodb": "1.4.x",
+		"swagger-node-express": "2.x.x",
+		"underscore": "1.x"
+	},
+	"devDependencies": {
+		"bower": ""
+	},
+	"license": "MIT",
+	"engines": {
+		"node": "0.10.25"
+	}
+}

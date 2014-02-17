@@ -1,0 +1,27 @@
+{
+	"name": "garden",
+	"version": "0.0.0",
+	"main": "index.js",
+	"authors": [
+		"Tim Golen <tim@golen.net>"
+	],
+	"license": "MIT",
+	"homepage": "http://www.golen.net",
+	"dependencies": {
+		"backbone-validation": "0.9.x",
+		"bootstrap": "3.1.x",
+		"jquery": "2.1.x",
+		"marionette": "1.6.x",
+		"requirejs": "2.1.x",
+		"requirejs-tpl": "",
+		"rivets": "0.6.x"
+	},
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"public/web/bower_components",
+		"test",
+		"tests"
+	]
+}
