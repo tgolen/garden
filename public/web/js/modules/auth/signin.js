@@ -29,11 +29,11 @@ define([
 		}),
 		_submitRegistration: function(e) {
 			this.model.url = '/api/v1/auth/register';
-			this._submit();
+			this._submit(e);
 		},
-		_submitSignin: function() {
+		_submitSignin: function(e) {
 			this.model.url = '/api/v1/auth/signin';
-			this._submit();
+			this._submit(e);
 		},
 		onRender: function () {
 			ViewForm.prototype.onRender.bind(this)();

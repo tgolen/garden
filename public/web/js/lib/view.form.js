@@ -5,9 +5,9 @@ define(['marionette', 'backbone'], function(Marionette, Backbone) {
 			// don't let the form get submitted
 			'submit form': function() { return false; }
 		},
-		_submit: function() {
+		_submit: function(e) {
 			if (this.model.isValid(true)) {
-				this.$('.btn-primary').button('loading');
+				this.$(e.currentTarget).button('loading');
 				this.model.save([], {
 					success: this._handleSaveSuccess.bind(this),
 					error: this._handleSaveError.bind(this)
@@ -17,12 +17,12 @@ define(['marionette', 'backbone'], function(Marionette, Backbone) {
 		_handleSaveSuccess: function(model, xhr) {
 			this.$('.alert-error-holder').empty();
 			setTimeout(function() {
-				this.$('.btn-primary').button('reset');
+				this.$('.btn').button('reset');
 			}.bind(this), 2000);
 		},
 		_handleSaveError: function(model, xhr) {
 			setTimeout(function() {
-				this.$('.btn-primary').button('reset');
+				this.$('.btn').button('reset');
 			}.bind(this), 2000);
 			this.$('.alert-error-holder').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong>Error!</strong> '+(xhr.evt.description || 'There was a server error.')+'</div>');
 		},
