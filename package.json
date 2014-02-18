@@ -10,6 +10,7 @@
 	"preferGlobal": false,
 	"dependencies": {
 		"async": "0.2.x",
+		"connect-mongo": "0.4.x",
 		"express": "3.x",
 		"mongodb": "1.4.x",
 		"swagger-node-express": "2.x.x",

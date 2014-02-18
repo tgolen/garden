@@ -8,7 +8,9 @@ define([
 	return Marionette.Layout.extend({
 		template: Template,
 		regions: {
-			content: '#content'
+			header : '#header',
+			content: '#content',
+			footer : '#footer'
 		}
 	});
 });

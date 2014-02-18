@@ -1,15 +1,27 @@
 var express = require('express'),
 	swagger = require('swagger-node-express'),
+	MongoStore = require('connect-mongo')(express),
 	fs = require('fs'),
 	path = require('path'),
+	dbServer = require('./db'),
 	pathToResources = path.join(__dirname, 'node_modules', 'routes.api');
 
 module.exports = {
 	init: function(app) {
 		var API = express();
 		app.use('/api/v1', API);
-		swagger.setAppHandler(API);
 
+		API.use(express.json());
+		API.use(express.urlencoded());
+		API.use(express.cookieParser());
+		API.use(express.session({
+			secret: 'shhh dont tell anyone my secret',
+			store: new MongoStore({
+				url: 'mongodb://127.0.0.1/garden_session'
+			})
+		}));
+
+		swagger.setAppHandler(API);
 		addResources(swagger);
 		swagger.setHeaders = function setHeaders(res) {
 			res.header('Content-Type', 'application/json; charset=utf-8');

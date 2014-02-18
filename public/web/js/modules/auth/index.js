@@ -22,7 +22,7 @@ define([
 					layoutPage.content.show(viewSignin);
 				},
 				signout: function() {
-					
+
 				}
 			};
 
@@ -31,6 +31,6 @@ define([
 		Module.router = new Marionette.AppRouter({
 			appRoutes: routes,
 			controller: controller
-		});;
+		});
 	};
 });

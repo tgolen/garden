@@ -1,4 +1,12 @@
-define(['lib/approuter.restricted'], function(AppRouterRestricted) {
+define([
+	'lib/approuter.restricted',
+	'./regions/body',
+	'./layouts/page'
+], function(
+	AppRouterRestricted,
+	RegionBody,
+	LayoutPage
+) {
 	return function(Module, App, Backbone, Marionette, $, _) {
 		// Private data and functions
 		// -------------------------------
@@ -8,7 +16,8 @@ define(['lib/approuter.restricted'], function(AppRouterRestricted) {
 			controller = {
 				restrictions: [ 'user' ],
 				index: function() {
-					console.log('index');
+					var layoutPage = new LayoutPage();
+					RegionBody.show(layoutPage);
 				}
 			};
 
