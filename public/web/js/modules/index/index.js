@@ -1,31 +1,35 @@
 define([
 	'lib/approuter.restricted',
 	'./regions/body',
-	'./layouts/page'
+	'./layouts/page',
+	'./header'
 ], function(
 	AppRouterRestricted,
 	RegionBody,
-	LayoutPage
+	LayoutPage,
+	ViewHeader
 ) {
 	return function(Module, App, Backbone, Marionette, $, _) {
-		// Private data and functions
-		// -------------------------------
-		var routes = {
-				'*path': 'index'
-			},
-			controller = {
-				restrictions: [ 'user' ],
-				index: function() {
-					var layoutPage = new LayoutPage();
-					RegionBody.show(layoutPage);
-				}
-			};
+		Module.Router = AppRouterRestricted.extend({
+			appRoutes: {
+				'*path' : 'index'
+			}
+		});
 
-		// Public data and functions
-		// -------------------------------
-		Module.router = new (AppRouterRestricted.extend({
-			appRoutes: routes,
-			controller: controller
-		}))();
+		var API = {
+			restrictions: [ 'user' ],
+			index: function(){
+				var layoutPage = new LayoutPage(),
+					viewHeader = new ViewHeader();
+				RegionBody.show(layoutPage);
+				layoutPage.header.show(viewHeader);
+			}
+		};
+
+		App.addInitializer(function(){
+			new Module.Router({
+				controller: API
+			});
+		});
 	};
 });

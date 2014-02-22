@@ -1,5 +1,6 @@
 define(['marionette', 'modules/auth/models/session'], function(Marionette, Session) {
 	var restrictions = {
+		// requires a logged in user
 		'user': function(cb) {
 			Session.fetch({
 				success: function() {
@@ -10,6 +11,22 @@ define(['marionette', 'modules/auth/models/session'], function(Marionette, Sessi
 					// if they exist, then we call our callback
 					// if they don't exist, send them to the sign in
 					window.location.hash = 'signin';
+				}.bind(this),
+				error: function() {
+					console.log('Session could not be loaded');
+				}.bind(this)
+			});
+		},
+		// requires a non logged in user
+		'nouser': function(cb) {
+			Session.fetch({
+				success: function() {
+					if (!Session.id) {
+						return cb();
+					}
+					// send them to the home page if they are already logged
+					// in and trying to access this controller
+					window.location.hash = '';
 				}.bind(this),
 				error: function() {
 					console.log('Session could not be loaded');
@@ -29,7 +46,6 @@ define(['marionette', 'modules/auth/models/session'], function(Marionette, Sessi
 		},
 		route: function(route, name, callback, controller) {
 			if (!callback) callback = this[name];
-
 			// wrap every method in a function that will perform
 			// our async authorization check
 			var f = function() {
@@ -53,6 +69,8 @@ define(['marionette', 'modules/auth/models/session'], function(Marionette, Sessi
 				_.each(controller.restrictions, function(restriction) {
 					if (restrictions[restriction]) {
 						restrictions[restriction](done);
+					} else {
+						throw new Error('There is no method for restricting: '+restriction);
 					}
 				}.bind(this));
 			} else {

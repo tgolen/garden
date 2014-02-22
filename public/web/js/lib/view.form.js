@@ -15,12 +15,14 @@ define(['marionette', 'backbone'], function(Marionette, Backbone) {
 			}
 		},
 		_handleSaveSuccess: function(model, xhr) {
+			this.onSave && this.onSave.apply(this, arguments);
 			this.$('.alert-error-holder').empty();
 			setTimeout(function() {
 				this.$('.btn').button('reset');
 			}.bind(this), 2000);
 		},
 		_handleSaveError: function(model, xhr) {
+			this.onError && this.onError.apply(this, arguments);
 			setTimeout(function() {
 				this.$('.btn').button('reset');
 			}.bind(this), 2000);

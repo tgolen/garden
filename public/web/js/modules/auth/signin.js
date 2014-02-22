@@ -47,6 +47,9 @@ define([
 					this.model.set('password', this.$('[name="password"]').val());
 				}
 			}.bind(this), 250);
+		},
+		onSave: function() {
+			window.location.reload(true);
 		}
 	});
 });

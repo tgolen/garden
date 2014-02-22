@@ -1,0 +1,34 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Garden</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li rv-each-nav="collection>models" rv-show="nav:pos | neq right" rv-class-active="nav:active">
+					<a rv-href="nav:url" rv-html="nav:text"></a>
+				</li>
+			</ul>
+
+			<p class="navbar-text navbar-right">
+				Hello, <span rv-text="model:username"></span>! 
+				<a href="#signout" class="navbar-link">Sign Out <i class="fa fa-sign-out"></i></a>
+			</p>
+			<ul class="nav navbar-nav navbar-right">
+				<li rv-each-nav="collection>models" rv-show="nav:pos | eq right">
+					<a rv-href="nav:url" rv-html="nav:text"></a>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+</nav>
