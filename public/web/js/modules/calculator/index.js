@@ -2,12 +2,14 @@ define([
 	'lib/approuter.restricted',
 	'../index/regions/body',
 	'../index/layouts/page',
-	'../index/header'
+	'../index/header',
+	'./mix'
 ], function(
 	AppRouterRestricted,
 	RegionBody,
 	LayoutPage,
-	ViewHeader
+	ViewHeader,
+	ViewMix
 ) {
 	return function(Module, App, Backbone, Marionette, $, _) {
 		Module.Router = AppRouterRestricted.extend({
@@ -17,12 +19,13 @@ define([
 		});
 
 		var API = {
-			restrictions: [ 'user' ],
 			calculator: function(){
 				var layoutPage = new LayoutPage(),
-					viewHeader = new ViewHeader();
+					viewHeader = new ViewHeader(),
+					viewMix = new ViewMix();
 				RegionBody.show(layoutPage);
 				layoutPage.header.show(viewHeader);
+				layoutPage.content.show(viewMix);
 			}
 		};
 

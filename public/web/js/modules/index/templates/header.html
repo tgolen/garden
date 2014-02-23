@@ -19,10 +19,15 @@
 				</li>
 			</ul>
 
-			<p class="navbar-text navbar-right">
+			<p class="navbar-text navbar-right" rv-if="model.id">
 				Hello, <span rv-text="model:username"></span>! 
 				<a href="#signout" class="navbar-link">Sign Out <i class="fa fa-sign-out"></i></a>
 			</p>
+
+			<p class="navbar-text navbar-right" rv-unless="model.id">
+				<a href="#signin" class="navbar-link"><i class="fa fa-sign-in"></i> Sign In</a>
+			</p>
+
 			<ul class="nav navbar-nav navbar-right">
 				<li rv-each-nav="collection>models" rv-show="nav:pos | eq right">
 					<a rv-href="nav:url" rv-html="nav:text"></a>

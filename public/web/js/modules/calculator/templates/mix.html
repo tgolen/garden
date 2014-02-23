@@ -1,0 +1,87 @@
+<form>
+
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="form-group">
+				<label for="length">Length</label>
+				<div class="input-group">
+					<input type="text"
+						id="length"
+						name="length"
+						rv-liveinput="model:length"
+						class="form-control span2"
+						placeholder="Length" />
+					<span class="input-group-addon">ft.</span>
+				</div>
+				<p class="help-block hidden"></p>
+			</div>
+		</div>
+
+		<div class="col-sm-3">
+			<div class="form-group">
+				<label for="width">Width</label>
+				<div class="input-group">
+					<input type="text"
+						id="width"
+						name="width"
+						rv-liveinput="model:width"
+						class="form-control"
+						placeholder="Width" />
+					<span class="input-group-addon">ft.</span>
+				</div>
+				<p class="help-block hidden"></p>
+			</div>
+		</div>
+
+		<div class="col-sm-3">
+			<div class="form-group">
+				<label for="height">Height</label>
+				<div class="input-group">
+					<input type="text"
+						id="height"
+						name="height"
+						rv-liveinput="model:height"
+						class="form-control"
+						placeholder="Height" />
+					<span class="input-group-addon">ft.</span>
+				</div>
+				<p class="help-block hidden"></p>
+			</div>
+		</div>
+
+		<div class="col-sm-2">
+			<div class="form-group">
+				<label for="qty">Quantity</label>
+				<select id="qty"
+					name="qty"
+					rv-liveinput="model:qty"
+					class="form-control">
+					<option value="">0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</select>
+				<p class="help-block hidden"></p>
+			</div>
+		</div>
+
+		<div class="col-sm-1">
+			<div class="form-group">
+				<label>&nbsp;</label>
+				<button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add</button>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+</form>
