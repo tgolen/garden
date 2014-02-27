@@ -30,8 +30,7 @@ define(['marionette', 'backbone'], function(Marionette, Backbone) {
 		},
 		onRender: function() {
 			// always bind our view to our model
-			this.rivets = window.__r.bind(this.$el, { model: this.model });
-			Backbone.Validation.bind(this);
+			this._bind();
 
 			// validate our model on change
 			this.listenTo(this.model, 'change', function(){
@@ -53,10 +52,17 @@ define(['marionette', 'backbone'], function(Marionette, Backbone) {
 
 			this.$('.btn').button();
 		},
-		onClose: function() {
-			// always unbind our view
+		_bind: function() {
+			this.rivets = window.__r.bind(this.$el, { model: this.model });
+			Backbone.Validation.bind(this);
+		},
+		_unbind: function() {
 			this.rivets && this.rivets.unbind();
 			Backbone.Validation.unbind(this);
+		},
+		onClose: function() {
+			// always unbind our view
+			this._unbind();
 		}
 	});
 })

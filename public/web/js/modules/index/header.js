@@ -27,6 +27,7 @@ define([
 		collection: navCollection,
 		model: Session,
 		onBeforeRender: function() {
+			this.model.fetch();
 			navCollection.each(function(model) {
 				model.set('active', false);
 			});

@@ -23,7 +23,7 @@ define([
 	return ViewForm.extend({
 		template: Template,
 		model: ModelForm,
-		events: _.extend(ViewForm.prototype.events, {
+		events: _.extend({}, ViewForm.prototype.events, {
 			'click .btn-primary': '_submitSignin',
 			'click .btn-secondary': '_submitRegistration'
 		}),
@@ -32,12 +32,12 @@ define([
 			this._submit(e);
 		},
 		_submitSignin: function(e) {
+			console.log('test');
 			this.model.url = '/api/v1/auth/signin';
 			this._submit(e);
 		},
 		onRender: function () {
 			ViewForm.prototype.onRender.bind(this)();
-
 			// this will deal with autocompleted values
 			setTimeout(function() {
 				if (this.$('[name="username"]').val() != '') {

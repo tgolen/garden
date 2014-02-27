@@ -1,15 +1,15 @@
 require.config({
 	paths: {
-		'backbone'            : 'bower_components/backbone/backbone',
-		'underscore'          : 'bower_components/underscore/underscore-min',
-		'bootstrap'           : 'bower_components/bootstrap/dist/js/bootstrap.min',
-		'jquery'              : 'bower_components/jquery/dist/jquery.min',
-		'marionette'          : 'bower_components/marionette/lib/core/amd/backbone.marionette',
-		'backbone.wreqr'      : 'bower_components/backbone.wreqr/lib/backbone.wreqr',
-		'backbone.babysitter' : 'bower_components/backbone.babysitter/lib/backbone.babysitter',
-		'backbone.validation' : 'bower_components/backbone-validation/dist/backbone-validation-amd-min',
-		'tpl'                 : 'bower_components/requirejs-tpl/tpl',
-		'rivets'              : 'bower_components/rivets/dist/rivets.min'
+		'backbone'            : '../bower/backbone/backbone',
+		'underscore'          : '../bower/underscore/underscore-min',
+		'bootstrap'           : '../bower/bootstrap/dist/js/bootstrap.min',
+		'jquery'              : '../bower/jquery/dist/jquery.min',
+		'marionette'          : '../bower/marionette/lib/core/amd/backbone.marionette',
+		'backbone.wreqr'      : '../bower/backbone.wreqr/lib/backbone.wreqr',
+		'backbone.babysitter' : '../bower/backbone.babysitter/lib/backbone.babysitter',
+		'backbone.validation' : '../bower/backbone-validation/dist/backbone-validation-amd-min',
+		'tpl'                 : '../bower/requirejs-tpl/tpl',
+		'rivets'              : '../bower/rivets/dist/rivets.min'
 	},
 	shim : {
 		jquery : {

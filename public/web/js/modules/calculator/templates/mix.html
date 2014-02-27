@@ -1,5 +1,14 @@
-<form>
 
+<h1>Mel's Mix Cubic Footage Calculator</h1>
+
+<p>
+	<em>Mel's Mix</em> is an equal mix of three ingredients: peat moss, vermiculite, and compost.
+	 Use the calculator below to determine how much of these ingredients you will need to fill your
+	 square foot garden boxes.
+</p>
+
+<form>
+	<h3>Enter the dimensions (in feet) of your square foot garden boxes. Use decimals for fractions (Example: .5 = 1/2 ft).</h3>
 	<div class="row">
 		<div class="col-sm-3">
 			<div class="form-group">
@@ -56,7 +65,6 @@
 					name="qty"
 					rv-liveinput="model:qty"
 					class="form-control">
-					<option value="">0</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -75,13 +83,52 @@
 		<div class="col-sm-1">
 			<div class="form-group">
 				<label>&nbsp;</label>
-				<button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add</button>
+				<button type="submit" class="btn btn-primary" data-loading-text="Adding..."><i class="fa fa-plus"></i> Add</button>
 			</div>
 		</div>
 	</div>
-
-
-
-
-
 </form>
+
+<div class="table-responsive" rv-show="collection.length | gt 0">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Length</th>
+				<th>Width</th>
+				<th>Height</th>
+				<th>Quantity</th>
+				<th width="40"></th>
+			</tr>
+		</thead>
+		<tbody id="region-mix-collection"></tbody>
+	</table>
+</div>
+
+<div class="row" rv-show="collection.length | gt 0">
+	<div class="col-sm-6">
+		<h2>Total: <strong><span class="bind-total-cuft">0</span></strong> cubic feet</h2>
+		<h3>Peat Moss: <strong><span class="bind-peat-cuft">0</span></strong> cubic feet</h3>
+		<h3>Vermiculite: <strong><span class="bind-verm-cuft">0</span></strong> cubic feet</h3>
+		<h3>Compost: <strong><span class="bind-comp-cuft">0</span></strong> cubic feet</h3>
+	</div>
+
+	<div class="col-sm-6">
+		<h2>Shopping List</h2>
+		<dl class="dl-horizontal">
+			<dt>Peat Moss</dt>
+			<dd>
+				<strong><span class="bind-peat-cuft-full">0</span></strong> Full bales (3.9 cubic feet compressed)<br />
+				or <br />
+				<strong><span class="bind-peat-cuft-half">0</span></strong> Half bales (2.2 cubic feet compressed)
+			</dd>
+			<dt>Vermiculite</dt>
+			<dd>
+				<strong><span class="bind-verm-cuft-full">0</span></strong> Large Bags (4 cubic feet)
+			</dd>
+			<dt>Compost</dt>
+			<dd>
+				<strong><span class="bind-comp-cuft">0</span></strong> cubic feet. Remember to get at least 5 different kinds of compost
+			</dd>
+		</dl>
+	</div>
+</div>
