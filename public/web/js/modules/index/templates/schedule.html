@@ -1,0 +1,22 @@
+<div class="table-responsive">
+	<table class="table table-condensed table-schedule table-bordered">
+		<thead>
+			<tr>
+				<th></th>
+				<th rv-each-week="collection>models" rv-html="week:dateFormatted" rv-class-growingseason="week:growingSeason" rv-class-current="week:current" rv-class-beforecurrent="week:beforeCurrent"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr rv-each-plant="model:plants>models">
+				<td>{plant:name}</td>
+				<td rv-each-week="plant:weeks>models"
+					rv-class-growingseason="week:growingSeason"
+					rv-class-beforecurrent="week:beforeCurrent"
+					rv-class-current="week:current"
+					rv-class-planting="week:planting"
+					rv-class-growing="week:growing"
+					rv-class-harvesting="week:harvesting">{week:numOfPlants | blank}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

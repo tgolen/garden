@@ -2,12 +2,14 @@ define([
 	'lib/approuter.restricted',
 	'./regions/body',
 	'./layouts/page',
-	'./header'
+	'./header',
+	'./schedule'
 ], function(
 	AppRouterRestricted,
 	RegionBody,
 	LayoutPage,
-	ViewHeader
+	ViewHeader,
+	ViewSchedule
 ) {
 	return function(Module, App, Backbone, Marionette, $, _) {
 		Module.Router = AppRouterRestricted.extend({
@@ -20,9 +22,11 @@ define([
 			restrictions: [ 'user' ],
 			index: function(){
 				var layoutPage = new LayoutPage(),
-					viewHeader = new ViewHeader();
+					viewHeader = new ViewHeader(),
+					viewSchedule = new ViewSchedule();
 				RegionBody.show(layoutPage);
 				layoutPage.header.show(viewHeader);
+				layoutPage.content.show(viewSchedule);
 			}
 		};
 

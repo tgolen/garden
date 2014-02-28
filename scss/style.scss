@@ -3,3 +3,49 @@
 body {
 	padding-top: 70px;
 }
+.table-schedule {
+	font-size: 9px;
+	th,
+	td {
+		background-color: $bgLightGrey;
+		padding: 0px !important;
+		text-align: center;
+		text-overflow: clip;
+		width: 15px;
+		min-width: 15px;
+		&.growingseason {
+			background-color: white;
+		}
+		&.beforecurrent {
+			display: none;
+		}
+		&.current {
+			border-right: 2px solid $brdBlue;
+			border-left: 2px solid $brdBlue;
+		}
+		&.planting {
+			background-color: brown;
+			color: white;
+		}
+		&.growing {
+			background-color: green;
+		}
+		&.harvesting {
+			background-color: yellow;
+		}
+		&:first-child {
+			background-color: white;
+			width: auto !important;
+			min-width: auto !important;
+		}
+	}
+	td {
+		height: 15px;
+		line-height: 15px;
+		padding: 1px 2px !important;
+		&:first-child {
+			background-color: white;
+			text-align: left;
+		}
+	}
+}

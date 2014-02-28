@@ -67,3 +67,68 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 body {
   padding-top: 70px;
 }
+
+/* line 6, ../../../scss/style.scss */
+.table-schedule {
+  font-size: 9px;
+}
+/* line 9, ../../../scss/style.scss */
+.table-schedule th,
+.table-schedule td {
+  background-color: #f1f1f1;
+  padding: 0px !important;
+  text-align: center;
+  text-overflow: clip;
+  width: 15px;
+  min-width: 15px;
+}
+/* line 16, ../../../scss/style.scss */
+.table-schedule th.growingseason,
+.table-schedule td.growingseason {
+  background-color: white;
+}
+/* line 19, ../../../scss/style.scss */
+.table-schedule th.beforecurrent,
+.table-schedule td.beforecurrent {
+  display: none;
+}
+/* line 22, ../../../scss/style.scss */
+.table-schedule th.current,
+.table-schedule td.current {
+  border-right: 2px solid #72aaff;
+  border-left: 2px solid #72aaff;
+}
+/* line 26, ../../../scss/style.scss */
+.table-schedule th.planting,
+.table-schedule td.planting {
+  background-color: brown;
+  color: white;
+}
+/* line 30, ../../../scss/style.scss */
+.table-schedule th.growing,
+.table-schedule td.growing {
+  background-color: green;
+}
+/* line 33, ../../../scss/style.scss */
+.table-schedule th.harvesting,
+.table-schedule td.harvesting {
+  background-color: yellow;
+}
+/* line 36, ../../../scss/style.scss */
+.table-schedule th:first-child,
+.table-schedule td:first-child {
+  background-color: white;
+  width: auto !important;
+  min-width: auto !important;
+}
+/* line 42, ../../../scss/style.scss */
+.table-schedule td {
+  height: 15px;
+  line-height: 15px;
+  padding: 1px 2px !important;
+}
+/* line 46, ../../../scss/style.scss */
+.table-schedule td:first-child {
+  background-color: white;
+  text-align: left;
+}
